@@ -4,13 +4,23 @@ import "testing"
 
 func TestHello(t *testing.T) {
 	t.Run("Say hello to people", func(t *testing.T) {
-		got := Hello("Mat")
+		got := Hello("Matt", "")
 		want := "Hello, Matt"
 		assertCorrectMessage(t, got, want)
 	})
 	t.Run("Say 'Hello, World' when an empty string is supplied", func(t *testing.T) {
-		got := Hello("")
+		got := Hello("", "")
 		want := "Hello, World"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("In Spanish", func(t *testing.T) {
+		got := Hello("Matt", "Spanish")
+		want := "Hola, Matt"
+		assertCorrectMessage(t, got, want)
+	})
+	t.Run("In French", func(t *testing.T) {
+		got := Hello("Jon", "French")
+		want := "Bonjour, Jon"
 		assertCorrectMessage(t, got, want)
 	})
 }
